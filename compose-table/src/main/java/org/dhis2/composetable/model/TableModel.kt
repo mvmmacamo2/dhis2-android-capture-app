@@ -50,8 +50,8 @@ data class TableCell(
 ) {
     fun isSelected(selectionState: SelectionState): Boolean {
         return selectionState.cellOnly &&
-                selectionState.row == row &&
-                selectionState.column == column
+            selectionState.row == row &&
+            selectionState.column == column
     }
 }
 
