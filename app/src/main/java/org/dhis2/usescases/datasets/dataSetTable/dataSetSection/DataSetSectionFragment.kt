@@ -127,6 +127,12 @@ class DataSetSectionFragment : FragmentGlobalAbstract(), DataValueContract.View 
                             tableData = tableData,
                             onCellClick = { cell ->
                                 presenterFragment.onCellClick(cell = cell)
+                            },
+                            onCellValueChange = {
+
+                            },
+                            onSaveValue = { cell ->
+                                presenterFragment.onCellValueChange(cell)
                             })
                     }
                 }
