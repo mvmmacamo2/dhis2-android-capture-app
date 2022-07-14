@@ -2,6 +2,7 @@ package org.dhis2.composetable.model
 
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import org.dhis2.composetable.ui.SelectionState
 
 data class TableModel(
     val id: String? = null,
@@ -40,7 +41,13 @@ data class TableCell(
     val error: String? = null,
     val isReadOnly: Boolean = false,
     val dropDownOptions: List<String>? = null
-)
+){
+    fun isSelected(selectionState: SelectionState):Boolean{
+        return selectionState.cellOnly &&
+                selectionState.row == row &&
+                selectionState.column == column
+    }
+}
 
 data class TableRowModel(val rowHeader: RowHeader, val values: Map<Int, TableCell>)
 data class RowHeader(val title: String, val row: Int? = null, val showDecoration: Boolean = false) {
